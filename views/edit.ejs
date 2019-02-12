@@ -1,0 +1,16 @@
+<% include layout/header.ejs %>
+<div class="container">
+    <div class="content">
+        <h1>Все курсы Академии</h1>
+        <form action="" method="post">
+            <fieldset class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Введите имя курса" value="<%= course.name %>">
+                <small class="text-muted">Добавте свой новый курс</small>
+            </fieldset>
+            <button class="btn btn-primary" type="submit">Сохранить курс</button>
+            <a href="/courses" class="btn btn-default">Отмена</a>
+        </form>
+    </div>
+</div>
+<% include layout/footer.ejs %>

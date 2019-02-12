@@ -3,9 +3,8 @@ var bodyParser = require('body-parser');
 var courses = require ('./data/courses.json');
 var app = express();
 
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
-// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
@@ -23,7 +22,7 @@ app.get('/courses', function(req, res) {
 
 // Get all courses
 app.get('/courses/add', function(req, res) {
-	res.render('add');
+	res.render('add', {title: 'Добавление курса'});
 });
 
 app.post('/courses/add', function(req, res) {
@@ -47,7 +46,7 @@ app.get('/courses/edit/:id', function(req, res) {
 		return;
 	}
 
-	res.render('edit', {course: course});
+	res.render('edit', {course: course, title: 'Edit'});
 });
 
 app.post('/courses/edit/:id', function(req, res) {
